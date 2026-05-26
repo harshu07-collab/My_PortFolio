@@ -30,6 +30,11 @@ const Scene = () => {
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
         antialias: true,
+        powerPreference: "high-performance",
+        stencil: false,
+        precision: "highp",
+        depth: true,
+        logarithmicDepthBuffer: true,
       });
       renderer.setSize(container.width, container.height);
       renderer.setPixelRatio(window.devicePixelRatio);

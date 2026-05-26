@@ -36,9 +36,9 @@ const Navbar = () => {
         }
       });
     });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+    return () => {
+      smoother?.kill();
+    };
   }, []);
   return (
     <>

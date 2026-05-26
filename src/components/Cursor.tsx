@@ -13,13 +13,16 @@ const Cursor = () => {
       mousePos.x = e.clientX;
       mousePos.y = e.clientY;
     });
+    const xTo = gsap.quickTo(cursor, "x", { duration: 0.1, ease: "power3" });
+    const yTo = gsap.quickTo(cursor, "y", { duration: 0.1, ease: "power3" });
+
     requestAnimationFrame(function loop() {
       if (!hover) {
         const delay = 6;
         cursorPos.x += (mousePos.x - cursorPos.x) / delay;
         cursorPos.y += (mousePos.y - cursorPos.y) / delay;
-        gsap.to(cursor, { x: cursorPos.x, y: cursorPos.y, duration: 0.1 });
-        // cursor.style.transform = `translate(${cursorPos.x}px, ${cursorPos.y}px)`;
+        xTo(cursorPos.x);
+        yTo(cursorPos.y);
       }
       requestAnimationFrame(loop);
     });

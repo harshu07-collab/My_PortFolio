@@ -6,9 +6,11 @@ export function setCharTimeline(
   camera: THREE.PerspectiveCamera
 ) {
   let intensity: number = 0;
-  setInterval(() => {
-    intensity = Math.random();
-  }, 200);
+  gsap.ticker.add(() => {
+    if (Math.random() > 0.95) {
+      intensity = Math.random();
+    }
+  });
   const tl1 = gsap.timeline({
     scrollTrigger: {
       trigger: ".landing-section",
@@ -17,6 +19,7 @@ export function setCharTimeline(
       scrub: true,
       invalidateOnRefresh: true,
     },
+    defaults: { force3D: true, lazy: true },
   });
   const tl2 = gsap.timeline({
     scrollTrigger: {
@@ -26,6 +29,7 @@ export function setCharTimeline(
       scrub: true,
       invalidateOnRefresh: true,
     },
+    defaults: { force3D: true, lazy: true },
   });
   const tl3 = gsap.timeline({
     scrollTrigger: {
@@ -35,6 +39,7 @@ export function setCharTimeline(
       scrub: true,
       invalidateOnRefresh: true,
     },
+    defaults: { force3D: true, lazy: true },
   });
   let screenLight: any, monitor: any;
   character?.children.forEach((object: any) => {
@@ -141,6 +146,7 @@ export function setAllTimeline() {
       scrub: true,
       invalidateOnRefresh: true,
     },
+    defaults: { force3D: true, lazy: true },
   });
   careerTimeline
     .fromTo(

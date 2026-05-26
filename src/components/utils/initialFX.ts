@@ -21,15 +21,15 @@ export function initialFX() {
   );
   gsap.fromTo(
     landingText.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
+    { opacity: 0, y: 80 },
     {
       opacity: 1,
       duration: 1.2,
-      filter: "blur(0px)",
       ease: "power3.inOut",
       y: 0,
-      stagger: 0.025,
+      stagger: 0.02,
       delay: 0.3,
+      force3D: true,
     }
   );
 
@@ -38,15 +38,15 @@ export function initialFX() {
   var landingText2 = new SplitText(".landing-h2-info", TextProps);
   gsap.fromTo(
     landingText2.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
+    { opacity: 0, y: 80 },
     {
       opacity: 1,
       duration: 1.2,
-      filter: "blur(0px)",
       ease: "power3.inOut",
       y: 0,
-      stagger: 0.025,
+      stagger: 0.02,
       delay: 0.3,
+      force3D: true,
     }
   );
 
@@ -93,8 +93,9 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
       duration: 1.2,
       ease: "power3.inOut",
       y: 0,
-      stagger: 0.1,
+      stagger: 0.05,
       delay: delay,
+      force3D: true,
     },
     0
   )
@@ -105,8 +106,9 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
         duration: 1.2,
         ease: "power3.inOut",
         y: 0,
-        stagger: 0.1,
+        stagger: 0.05,
         delay: delay2,
+        force3D: true,
       },
       1
     )
@@ -117,8 +119,9 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
         y: -80,
         duration: 1.2,
         ease: "power3.inOut",
-        stagger: 0.1,
+        stagger: 0.05,
         delay: delay,
+        force3D: true,
       },
       0
     )
@@ -128,8 +131,9 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
         y: -80,
         duration: 1.2,
         ease: "power3.inOut",
-        stagger: 0.1,
+        stagger: 0.05,
         delay: delay2,
+        force3D: true,
       },
       1
     );
